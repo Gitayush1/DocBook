@@ -9,12 +9,15 @@ const RelatedDoctors = ({speciality,docId}) => {
 
     const [relDoc,setRelDocs] = useState([])
 
-    useEffect(()=>{
-        if (doctors.length > 0 && speciality){
-            const doctorsData = doctors.filter((doc)=>doc.speciality === speciality && doc._id != docId)
-            setRelDocs(doctorsData)
-        }
-    })
+    useEffect(() => {
+      if (doctors.length > 0 && speciality) {
+        const doctorsData = doctors.filter(
+          (doc) => doc.speciality === speciality && doc._id !== docId
+        )
+        setRelDocs(doctorsData)
+      }
+    }, [doctors, speciality, docId])
+    
 
   return (
     <div className='flex flex-col items-center gap-4 my-16 text-gray-900 md:mx-10'>
