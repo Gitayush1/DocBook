@@ -90,10 +90,10 @@ const SymptomChecker = () => {
             <div className='w-9 h-9 bg-white/20 rounded-xl flex items-center justify-center text-xl'>🩺</div>
             <div>
               <p className='text-white font-semibold text-sm'>Symptom Checker</p>
-              <p className='text-indigo-100 text-xs'>Powered by Google Gemini AI</p>
+              <p className='text-indigo-100 text-xs'>Powered by Groq AI</p>
             </div>
             <span className='ml-auto bg-white/20 text-white text-xs px-3 py-1 rounded-full border border-white/30'>
-              Free · Instant
+              Free
             </span>
           </div>
 
@@ -146,8 +146,8 @@ const SymptomChecker = () => {
                   {loading ? (
                     <>
                       <svg className='animate-spin w-4 h-4' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24'>
-                        <circle className='opacity-25' cx='12' cy='12' r='10' stroke='currentColor' strokeWidth='4'/>
-                        <path className='opacity-75' fill='currentColor' d='M4 12a8 8 0 018-8v8z'/>
+                        <circle className='opacity-25' cx='12' cy='12' r='10' stroke='currentColor' strokeWidth='4' />
+                        <path className='opacity-75' fill='currentColor' d='M4 12a8 8 0 018-8v8z' />
                       </svg>
                       Analyzing symptoms…
                     </>
@@ -202,7 +202,7 @@ const SymptomChecker = () => {
                             <p className='text-xs text-gray-400'>per visit</p>
                           </div>
                           <svg className='w-4 h-4 text-gray-300 group-hover:text-indigo-400 flex-shrink-0 transition-colors' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                            <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 5l7 7-7 7'/>
+                            <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 5l7 7-7 7' />
                           </svg>
                         </div>
                       ))}
