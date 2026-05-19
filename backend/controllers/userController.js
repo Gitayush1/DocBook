@@ -6,6 +6,7 @@ import appointmentModel from "../models/appointmentModel.js";
 import doctorModel from "../models/doctorModel.js";
 import Stripe from "stripe";
 import mongoose from "mongoose";
+import { v2 as cloudinary } from "cloudinary";
 
 // Initialize Stripe
 const stripeInstance = new Stripe(process.env.STRIPE_SECRET_KEY);
