@@ -47,12 +47,36 @@ Format your response EXACTLY like this:
 Example: Dermatologist|||Skin rashes and itching are best evaluated by a skin specialist.
     `.trim();
 
-    const chatCompletion = await groq.chat.completions.create({
-      messages: [{ role: "user", content: prompt }],
-      model: "llama-3.3-70b-versatile",
-      temperature: 0.3,
-      max_tokens: 150,
-    });
+    const modelsToTry = [
+      process.env.GROQ_MODEL,
+      "groq/compound-mini",
+      "openai/gpt-oss-120b",
+      "qwen/qwen3.6-27b",
+      "groq/compound",
+      "openai/gpt-oss-20b"
+    ].filter(Boolean);
+
+    let chatCompletion = null;
+    let lastError = null;
+
+    for (const model of [...new Set(modelsToTry)]) {
+      try {
+        chatCompletion = await groq.chat.completions.create({
+          messages: [{ role: "user", content: prompt }],
+          model,
+          temperature: 0.3,
+          max_tokens: 150,
+        });
+        if (chatCompletion) break;
+      } catch (err) {
+        lastError = err;
+        console.warn(`Groq Model ${model} failed, trying fallback model... (${err.message})`);
+      }
+    }
+
+    if (!chatCompletion) {
+      throw lastError || new Error("All Groq AI models failed.");
+    }
 
     const rawText = chatCompletion.choices[0]?.message?.content?.trim() || "";
 
