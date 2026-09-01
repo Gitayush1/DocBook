@@ -51,7 +51,7 @@ Example: Dermatologist|||Skin rashes and itching are best evaluated by a skin sp
       process.env.GROQ_MODEL,
       "groq/compound-mini",
       "openai/gpt-oss-120b",
-      "qwen/qwen3.6-27b",
+      "qwen/qwen3.8-27b",
       "groq/compound",
       "openai/gpt-oss-20b"
     ].filter(Boolean);
